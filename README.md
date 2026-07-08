@@ -1,59 +1,48 @@
-# VMware ESXi — Virtualisatie & Active Directory
+# Datacenter & Cloud
 
-> **Schoolproject** — Odisee Campus Brussel · Toegepaste Informatica · Cybersecurity & Network Specialist · 2024–2025
+> **Schoolopdrachten** — Odisee Campus Brussel · Toegepaste Informatica · Cybersecurity & Network Specialist · 2025–2026
+> **Docent (ESXi-luik):** Thijs Dirk
 
-Opzetten van een gevirtualiseerde serveromgeving met VMware ESXi, Windows Server 2022 en Active Directory domeinbeheer.
-
----
-
-## Technologieën
-
-| Domein | Technologie |
-|--------|-------------|
-| Hypervisor | VMware ESXi |
-| OS | Windows Server 2022 |
-| Directoryservice | Active Directory Domain Services (AD DS) |
-| DNS & DHCP | Windows DNS Server, Windows DHCP Server |
-| Groepsbeleid | Group Policy Objects (GPO) |
-| Scripting | PowerShell |
+Praktische opdrachten uit het vak **Datacenter & Cloud**, verdeeld over een virtualisatie-luik (VMware ESXi + Windows) en een cloud-luik (Microsoft Azure). Elke opdracht bevat een uitgewerkt Word-verslag met screenshots en een korte samenvatting in de README van die submap.
 
 ---
 
-## Inhoud van deze repo
+## Inhoud
 
-```
-scripts/
-├── New-ADUsers.ps1        # Bulk gebruikers aanmaken via CSV
-└── New-OUStructure.ps1    # OU-structuur aanmaken in AD
+### Virtualisatie & Windows Server
 
-docs/
-├── VM-configuratie.md     # ESXi host + VM specs en netwerkinstellingen
-└── GPO-overzicht.md       # Overzicht van toegepaste groepsbeleidsregels
-```
+| Map | Opdracht | Skills |
+|-----|----------|--------|
+| [`esxi-installatie/`](esxi-installatie/) | Installatie VMware ESXi 8.0 in VMware Workstation Pro 17 | ESXi, nested virtualization, ISO deploy |
+| [`windows-10-vm/`](windows-10-vm/) | Windows 10 Pro VM aanmaken in Workstation | VMware Workstation, Windows install, VMware Tools |
+| [`windows-server-esxi/`](windows-server-esxi/) | Windows Server + Workstation deployen op geneste ESXi | ESXi Host Client, datastore, Windows Server, domain join |
 
----
+### Cloud
 
-## Scripts
-
-### `New-ADUsers.ps1`
-Leest een CSV-bestand in en maakt automatisch AD-gebruikersaccounts aan in de juiste OU. Configureert UPN, wachtwoord en verplichte wachtwoordwijziging bij eerste login.
-
-### `New-OUStructure.ps1`
-Maakt de basisstructuur van Organisatie-eenheden (OUs) aan voor een schooldomein: Gebruikers, Leerlingen, Personeel, Computers, Groepen, Servers.
+| Map | Opdracht | Skills |
+|-----|----------|--------|
+| [`azure-portfolio/`](azure-portfolio/) | Azure Eindopdracht — VM, VNet, Container Instances, Storage Account | Azure Portal, resource groups, NSG, VNet Peering, Blob storage |
 
 ---
 
-## Documentatie
+## Highlights
 
-- **[VM-configuratie.md](docs/VM-configuratie.md)** — ESXi host specs, VM overzicht, netwerkconfiguratie en stappen voor domeinopzet
-- **[GPO-overzicht.md](docs/GPO-overzicht.md)** — Toegepaste groepsbeleidsregels met wachtwoord- en vergrendelingsbeleid
+- **Nested virtualization** (Opdracht 3): volledige Windows-infrastructuur binnen een geneste ESXi-host — vergt correcte hardware-configuratie op de Workstation-VM
+- **Azure resources**: gewerkt in West Europe en France Central regio's, met resource groups, VNets, subnets, NSG's en VNet peering
+- **Volledige documentatie**: elk verslag bevat stap-voor-stap screenshots met per-figuur toelichting
 
 ---
 
-## Badges
+## Omgeving
 
-![VMware](https://img.shields.io/badge/Hypervisor-VMware%20ESXi-607078?logo=vmware&logoColor=white)
-![Windows Server](https://img.shields.io/badge/OS-Windows%20Server%202022-0078D4?logo=windows&logoColor=white)
-![Active Directory](https://img.shields.io/badge/Directory-Active%20Directory-blue)
-![PowerShell](https://img.shields.io/badge/Scripting-PowerShell-5391FE?logo=powershell&logoColor=white)
+- **Host:** Windows 11 laptop
+- **Virtualisatie:** VMware Workstation Pro 17
+- **Hypervisor (nested):** VMware ESXi 8.0 Update 3
+- **Cloud:** Microsoft Azure (Azure for Students subscription)
 
+---
+
+![VMware](https://img.shields.io/badge/VMware-ESXi%208.0-607078?logo=vmware&logoColor=white)
+![Workstation](https://img.shields.io/badge/VMware-Workstation%20Pro%2017-607078?logo=vmware&logoColor=white)
+![Windows Server](https://img.shields.io/badge/Windows%20Server-2025-0078D4?logo=windows&logoColor=white)
+![Azure](https://img.shields.io/badge/Cloud-Microsoft%20Azure-0089D6?logo=microsoftazure&logoColor=white)
